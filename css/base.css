@@ -1,0 +1,369 @@
+/* Base: component styles and responsive adjustments. */
+:root {
+  --navy: #132d2b;
+  --ink: #182b29;
+  --green: #28604d;
+  --gold: #f2c357;
+  --paper: #fafaf7;
+  --line: #e5e8e1;
+  --muted: #737b73;
+  --orange: #bd522f;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 25px;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fff;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  color: inherit;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #c88329;
+  outline-offset: 4px;
+}
+button {
+  border: 0;
+  background: none;
+}
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h2,
+h3,
+h4 {
+  font-family: "Manrope", Arial, sans-serif;
+}
+svg {
+  width: 21px;
+  height: 21px;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.wrap {
+  max-width: 1360px;
+  width: calc(100% - 96px);
+  margin: 0 auto;
+}
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  padding: 0;
+  white-space: nowrap;
+  position: relative;
+}
+.icon-button b {
+  font-size: 10px;
+  background: #edf0e9;
+  border-radius: 50%;
+  padding: 3px 5px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ghana-stripes {
+  display: inline-block;
+  width: 22px;
+  height: 14px;
+  background: linear-gradient(
+    #b94432 33.3%,
+    #f1c552 33.3%,
+    #f1c552 66.6%,
+    #357152 66.6%
+  );
+  flex-shrink: 0;
+  position: relative;
+}
+.ghana-stripes:after {
+  content: "★";
+  color: #132d2b;
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  font-size: 7px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 44px;
+  padding: 13px 21px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 3px;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+.button svg {
+  width: 17px;
+  height: 17px;
+}
+.cream {
+  background: #faf2d9;
+  color: var(--navy);
+}
+.dark {
+  background: var(--navy);
+  color: white;
+}
+.outline {
+  border: 1px solid #bdc8ba;
+  background: white;
+}
+.text-button {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  gap: 25px;
+}
+.trust-strip > div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.trust-strip svg {
+  color: var(--green);
+  width: 25px;
+  height: 25px;
+}
+.trust-strip strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+}
+.trust-strip small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 5px;
+}
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.muted {
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+.section-heading h2 {
+  font-size: 27px;
+  letter-spacing: -1px;
+  margin-top: 9px;
+  font-weight: 700;
+}
+.section-heading > .text-button {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+select {
+  appearance: none;
+  border: 0;
+  background: #fff
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='m2 3 3 3 3-3' fill='none' stroke='%23132d2b'/%3E%3C/svg%3E")
+    no-repeat right 3px center;
+  padding: 8px 20px 8px 8px;
+  color: var(--ink);
+  font-size: 11px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 1150px) {
+  .wrap {
+    width: calc(100% - 56px);
+  }
+  .trust-strip {
+    gap: 15px;
+  }
+  .trust-strip strong {
+    font-size: 10px;
+  }
+  .trust-strip small {
+    font-size: 9px;
+  }
+}
+@media (max-width: 850px) {
+  .trust-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .section-heading h2 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 580px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+  .trust-strip {
+    padding: 22px 0;
+    gap: 22px 12px;
+  }
+  .trust-strip > div {
+    gap: 9px;
+    align-items: start;
+  }
+  .trust-strip svg {
+    width: 21px;
+    height: 21px;
+  }
+  .trust-strip strong {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .trust-strip small {
+    font-size: 9px;
+    line-height: 1.6;
+    margin-top: 3px;
+  }
+  .section-heading {
+    align-items: start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .section-heading h2 {
+    font-size: 22px;
+    line-height: 1.4;
+    letter-spacing: -0.8px;
+  }
+  .section-heading > .text-button {
+    display: none;
+  }
+  .muted {
+    font-size: 8px;
+    line-height: 1.7;
+    letter-spacing: 1.2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+.icon-button,
+.button,
+.text-button {
+  font-size: 14px;
+}
+.trust-strip strong {
+  font-size: 13px;
+}
+.trust-strip small {
+  font-size: 12px;
+}
+.section-heading .eyebrow {
+  font-size: 10px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 1150px) {
+  .trust-strip {
+    gap: 18px;
+  }
+}
+@media (max-width: 850px) {
+  .trust-strip {
+    gap: 22px;
+  }
+}
+@media (max-width: 580px) {
+  .trust-strip strong {
+    font-size: 12px;
+  }
+  .trust-strip small {
+    font-size: 11px;
+  }
+}

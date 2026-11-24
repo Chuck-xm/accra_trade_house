@@ -1,0 +1,472 @@
+/* Trade And Producers: component styles and responsive adjustments. */
+.trade-banner {
+  background: #173c32;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 230px 1fr 210px;
+  gap: 35px;
+  align-items: center;
+  color: #fff;
+  padding: 40px 35px;
+  position: relative;
+  overflow: hidden;
+}
+.trade-art {
+  height: 220px;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+.trade-art > span {
+  font-size: 72px;
+  color: #ebc771;
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  z-index: 1;
+  letter-spacing: -7px;
+}
+.orbit {
+  position: absolute;
+  border: 1px solid #8b9a6a80;
+  border-radius: 50%;
+  inset: 10px;
+}
+.orbit-one {
+  transform: rotate(-30deg);
+  height: 120px;
+  top: 50px;
+  inset-inline: 0;
+}
+.orbit-two {
+  height: 180px;
+  width: 180px;
+  left: 25px;
+  top: 20px;
+}
+.trade-art b {
+  position: absolute;
+  bottom: 25px;
+  left: 91px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #e8cc8e;
+}
+.trade-art i {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  font-size: 33px;
+  color: #e8cc8e;
+  font-style: normal;
+}
+.trade-copy .eyebrow {
+  font-size: 9px;
+  color: #e9ce8e;
+}
+.trade-copy h2 {
+  font-size: 29px;
+  line-height: 1.3;
+  letter-spacing: -0.9px;
+  margin-top: 13px;
+}
+.trade-copy p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #bdcec1;
+  margin-top: 13px;
+}
+.trade-copy .button {
+  margin-top: 21px;
+  font-size: 11px;
+}
+.network-list {
+  border-left: 1px solid #486251;
+  padding-left: 28px;
+}
+.network-list > span {
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  color: #c0d0bd;
+}
+.network-list strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+.network-list small {
+  font-size: 9px;
+  background: #ffffff17;
+  color: #e9d49c;
+  padding: 4px 6px;
+  margin-left: 9px;
+}
+.producer-section {
+  padding-top: 48px;
+}
+.demo-label {
+  font-size: 10px;
+  color: var(--muted);
+}
+.producer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.producer-card {
+  display: grid;
+  grid-template-columns: 43% 57%;
+  background: #f5f6f0;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.producer-card > img {
+  height: 245px;
+}
+.producer-card > div {
+  padding: 26px 22px;
+}
+.producer-card > div > span {
+  font-size: 8px;
+  color: var(--green);
+  letter-spacing: 1px;
+}
+.producer-card h3 {
+  font-size: 19px;
+  line-height: 1.5;
+  letter-spacing: -0.5px;
+  margin-top: 12px;
+}
+.producer-card p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.producer-card .text-button {
+  font-size: 11px;
+  margin-top: 17px;
+}
+.join-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  background: #f3e7c3;
+  border-radius: 4px;
+  padding: 31px 35px;
+  margin-top: 40px;
+}
+.join-banner .eyebrow {
+  font-size: 8px;
+  color: #82642d;
+}
+.join-banner h2 {
+  font-size: 23px;
+  letter-spacing: -0.7px;
+  margin-top: 9px;
+}
+.join-banner p {
+  font-size: 11px;
+  color: #6e684e;
+  margin-top: 9px;
+}
+.join-banner .button {
+  font-size: 11px;
+}
+.newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 42px 0;
+}
+.newsletter h3 {
+  font-size: 20px;
+  letter-spacing: -0.7px;
+}
+.newsletter p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.newsletter form {
+  display: flex;
+  width: 43%;
+  border: 1px solid #cdd4c7;
+  padding: 5px;
+  border-radius: 3px;
+}
+.newsletter input {
+  min-width: 0;
+  flex: 1;
+  font-size: 12px;
+  border: 0;
+  padding: 10px;
+  background: transparent;
+}
+.newsletter button {
+  font-size: 11px;
+  background: var(--navy);
+  color: white;
+  border-radius: 2px;
+  padding: 10px 17px;
+}
+@media (max-width: 1150px) {
+  .trade-banner {
+    grid-template-columns: 170px 1fr 170px;
+    gap: 25px;
+    padding: 30px 25px;
+  }
+  .trade-art {
+    transform: scale(0.8);
+  }
+  .trade-copy h2 {
+    font-size: 26px;
+  }
+  .network-list {
+    padding-left: 20px;
+  }
+  .producer-card > div {
+    padding: 20px 17px;
+  }
+  .producer-card h3 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 850px) {
+  .trade-banner {
+    grid-template-columns: 1fr 160px;
+    gap: 20px;
+  }
+  .trade-art {
+    display: none;
+  }
+  .producer-card {
+    grid-template-columns: 1fr;
+  }
+  .producer-card > img {
+    height: 190px;
+  }
+  .producer-card > div {
+    padding: 22px;
+  }
+  .join-banner {
+    padding: 25px;
+  }
+  .join-banner h2 {
+    font-size: 20px;
+  }
+  .join-banner .button {
+    max-width: 210px;
+  }
+  .newsletter form {
+    width: 48%;
+  }
+  .newsletter h3 {
+    font-size: 18px;
+  }
+  .newsletter p {
+    font-size: 11px;
+  }
+}
+@media (max-width: 580px) {
+  .producer-section {
+    padding-top: 32px;
+  }
+  .trade-banner {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+  .trade-copy h2 {
+    font-size: 27px;
+  }
+  .trade-copy .eyebrow {
+    font-size: 8px;
+    line-height: 1.6;
+  }
+  .trade-copy p {
+    font-size: 12px;
+  }
+  .network-list {
+    border-left: 0;
+    border-top: 1px solid #486251;
+    padding: 20px 0 0;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .network-list > span {
+    width: 100%;
+  }
+  .network-list strong {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .network-list small {
+    display: none;
+  }
+  .producer-grid {
+    grid-template-columns: 1fr;
+  }
+  .producer-card {
+    grid-template-columns: 40% 60%;
+  }
+  .producer-card > img {
+    height: 100%;
+    min-height: 245px;
+  }
+  .producer-card > div {
+    padding: 21px 17px;
+  }
+  .producer-card > div > span {
+    font-size: 7px;
+    line-height: 1.8;
+    display: block;
+  }
+  .producer-card h3 {
+    font-size: 16px;
+  }
+  .producer-card p {
+    font-size: 10px;
+  }
+  .producer-card .text-button {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .demo-label {
+    display: none;
+  }
+  .join-banner {
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: start;
+    padding: 25px;
+    gap: 20px;
+  }
+  .join-banner h2 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .join-banner p {
+    line-height: 1.7;
+  }
+  .join-banner .button {
+    max-width: none;
+  }
+  .newsletter {
+    padding: 30px 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .newsletter form {
+    width: 100%;
+  }
+  .newsletter button {
+    font-size: 10px;
+    padding-inline: 12px;
+  }
+}
+.newsletter input,
+.newsletter button {
+  font-size: 14px;
+}
+.trade-copy p,
+.producer-card p,
+.join-banner p,
+.newsletter p {
+  font-size: 14px;
+}
+.demo-label {
+  font-size: 12px;
+}
+.trade-copy .eyebrow,
+.join-banner .eyebrow {
+  font-size: 10px;
+}
+.producer-card > img {
+  min-height: 280px;
+}
+.producer-card > div > span {
+  font-size: 10px;
+}
+.producer-card .text-button {
+  font-size: 13px;
+}
+.newsletter form {
+  width: 48%;
+}
+.network-list > span {
+  font-size: 10px;
+}
+@media (max-width: 1150px) {
+  .trade-banner {
+    grid-template-columns: 150px 1fr 170px;
+  }
+  .producer-card {
+    grid-template-columns: 40% 60%;
+  }
+}
+@media (max-width: 850px) {
+  .trade-banner {
+    grid-template-columns: 1fr 160px;
+  }
+  .producer-card {
+    grid-template-columns: 1fr;
+  }
+  .producer-card > img {
+    height: 190px;
+    min-height: 0;
+  }
+  .newsletter {
+    flex-wrap: wrap;
+  }
+  .newsletter form {
+    width: 100%;
+  }
+  .join-banner {
+    flex-direction: column;
+    align-items: start;
+    gap: 22px;
+  }
+  .join-banner .button {
+    max-width: none;
+  }
+}
+@media (max-width: 580px) {
+  .trade-banner {
+    grid-template-columns: 1fr;
+  }
+  .trade-copy .button {
+    font-size: 13px;
+    gap: 10px;
+  }
+  .producer-card {
+    grid-template-columns: 1fr;
+  }
+  .producer-card > img {
+    height: 210px;
+    min-height: 0;
+  }
+  .producer-card h3 {
+    font-size: 20px;
+  }
+  .producer-card p {
+    font-size: 14px;
+  }
+  .producer-card > div {
+    padding: 23px;
+  }
+  .producer-card .text-button {
+    font-size: 14px;
+  }
+  .join-banner .button {
+    font-size: 13px;
+    gap: 12px;
+  }
+  .newsletter button {
+    font-size: 12px;
+  }
+}

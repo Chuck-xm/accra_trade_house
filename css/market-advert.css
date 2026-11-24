@@ -1,0 +1,155 @@
+/* Friday Market advert. The shared dialog supplies focus handling and dismissal. */
+#modal.market-advert {
+  width: min(460px, calc(100% - 32px));
+  padding: 0;
+  background: #f4e9c8;
+}
+.market-advert .modal-close {
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--navy);
+  background: #fff8e5;
+}
+.market-advert .modal-close:hover {
+  background: white;
+}
+.market-card {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 36px 36px;
+}
+.market-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 40px;
+  gap: 12px;
+}
+.market-top .eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+}
+.market-sun {
+  color: #a4452d;
+  font-size: 40px;
+  line-height: 1;
+}
+.market-kicker {
+  margin-top: 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #82642d;
+}
+.market-card h2 {
+  margin-top: 10px;
+  font-size: 43px;
+  line-height: 1.14;
+  letter-spacing: -1.5px;
+}
+.market-intro {
+  margin-top: 18px;
+  color: #69634e;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.market-date {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+  padding: 16px 0;
+  border-top: 1px solid #c9be9e;
+  border-bottom: 1px solid #c9be9e;
+}
+.market-date > strong {
+  font-family: Manrope, sans-serif;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 600;
+}
+.market-date > span {
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 1.3px;
+}
+.market-date b {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.market-location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 18px;
+  font-size: 14px;
+}
+.market-location svg {
+  width: 18px;
+  height: 18px;
+}
+.market-schedule {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #69634e;
+}
+.market-card .button {
+  width: 100%;
+  margin-top: 22px;
+  font-size: 14px;
+}
+.market-card .text-button {
+  display: block;
+  margin: 17px auto 0;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.market-note {
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #69634e;
+}
+.market-pattern {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  color: #bda65e;
+  font-size: 28px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  opacity: 0.5;
+  pointer-events: none;
+}
+@media (max-width: 580px) {
+  .market-card {
+    padding: 25px 24px 30px;
+  }
+  .market-top .eyebrow {
+    font-size: 9px;
+  }
+  .market-sun {
+    font-size: 32px;
+  }
+  .market-card h2 {
+    font-size: 36px;
+  }
+  .market-kicker {
+    font-size: 10px;
+  }
+  .market-date > strong {
+    font-size: 56px;
+  }
+  .market-date > span {
+    font-size: 12px;
+  }
+}
