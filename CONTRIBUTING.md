@@ -61,9 +61,11 @@ The hooks block commits on `main` and pushes targeting remote `main`, including 
 
 ## GitHub protection setup
 
-Repository files do not activate branch protection. An administrator must configure the rule separately on GitHub. The GitHub app used in this session does not expose administration writes.
+Branch protection was activated and verified on `main` on 25 November 2026. It requires a pull request, the passing **Prototype tests** check, an up-to-date branch, conversation resolution, and linear history. It applies to administrators and blocks force pushes and branch deletion.
 
-After the first workflow PR has run, open:
+Repository files alone do not activate protection. The instructions below document the active settings for future maintenance. The connected GitHub app does not expose administration writes; the initial setup used the existing GitHub sign-in through Git’s credential helper, without storing credentials in the repository.
+
+To inspect or maintain the active rule, open:
 
 https://github.com/Chuck-xm/accra_trade_house/settings/branches
 
@@ -82,4 +84,4 @@ An administrator with an authenticated GitHub CLI can apply the same prepared se
 gh api --method PUT repos/Chuck-xm/accra_trade_house/branches/main/protection --input docs/main-branch-protection.json
 ```
 
-Verify the resulting rule in GitHub settings. Until it is active, GitHub can still accept direct pushes made outside the local hooks.
+Verify changes in GitHub settings after applying them. Keep the protection active; local hooks alone cannot enforce the remote workflow. See [GitHub’s protected branch documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).

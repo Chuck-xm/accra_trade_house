@@ -4,7 +4,7 @@ A responsive, enquiry-led marketplace prototype using plain HTML, CSS, and JavaS
 
 ## Repository workflow
 
-`main` holds accepted versions. Work happens on short-lived branches and reaches `main` through reviewed pull requests with passing automated checks. See [CONTRIBUTING.md](CONTRIBUTING.md) for branch names, the acceptance checklist, local branch guards, and GitHub protection setup.
+`main` is protected and holds accepted versions. Work happens on short-lived branches and reaches `main` through reviewed pull requests with passing automated checks. See [CONTRIBUTING.md](CONTRIBUTING.md) for branch names, the acceptance checklist, local branch guards, and GitHub protection setup.
 
 ## Preview
 
