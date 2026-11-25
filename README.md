@@ -2,6 +2,10 @@
 
 A responsive, enquiry-led marketplace prototype using plain HTML, CSS, and JavaScript. No installation or build step is required.
 
+## Repository workflow
+
+`main` holds accepted versions. Work happens on short-lived branches and reaches `main` through reviewed pull requests with passing automated checks. See [CONTRIBUTING.md](CONTRIBUTING.md) for branch names, the acceptance checklist, local branch guards, and GitHub protection setup.
+
 ## Preview
 
 Serve the folder over HTTP because JavaScript uses native ES modules. Run `npm run dev` (no npm install required), or:
@@ -55,6 +59,6 @@ Fonts are DM Sans and Manrope from Google Fonts, with local system fallbacks. Pr
 
 ## Verification
 
-Seven module integration checks pass with `npm test`, covering initialisation, catalogue filtering and sorting, delegated saved-item actions, independent form flows, enquiry persistence, escaped trade-desk content, producer search, and clearing data. The tests use a small DOM adapter; they do not replace browser layout checks. The local HTTP server returned the homepage successfully.
+Ten checks pass with `npm test`, covering initialisation, catalogue filtering and sorting, delegated saved-item actions, independent form flows, enquiry persistence, escaped trade-desk content, producer search, clearing data, and the local branch guards. The tests use a small DOM adapter; they do not replace browser layout checks. The local HTTP server returned the homepage successfully.
 
 The project owner viewed the prototype through VS Code Go Live on 24 November 2026. Automated browser interaction and mobile viewport checks have not been completed.

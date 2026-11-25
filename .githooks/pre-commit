@@ -1,0 +1,11 @@
+#!/bin/sh
+# Main contains approved releases. Make edits on a feature, fix, or chore branch.
+branch=$(git symbolic-ref --quiet --short HEAD) || {
+  echo "Commit blocked: switch to a named work branch first." >&2
+  exit 1
+}
+if [ "$branch" = "main" ]; then
+  echo "Commit blocked: main is reserved for approved pull requests." >&2
+  echo "Create a branch first: git switch -c feature/describe-your-change" >&2
+  exit 1
+fi
