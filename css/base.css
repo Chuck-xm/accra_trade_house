@@ -1,14 +1,4 @@
 /* Base: component styles and responsive adjustments. */
-:root {
-  --navy: #132d2b;
-  --ink: #182b29;
-  --green: #28604d;
-  --gold: #f2c357;
-  --paper: #fafaf7;
-  --line: #e5e8e1;
-  --muted: #737b73;
-  --orange: #bd522f;
-}
 * {
   box-sizing: border-box;
 }
@@ -59,7 +49,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #c88329;
+  outline: 3px solid var(--primary);
   outline-offset: 4px;
 }
 button {
@@ -109,7 +99,7 @@ svg {
 }
 .icon-button b {
   font-size: 10px;
-  background: #edf0e9;
+  background: var(--surface-green);
   border-radius: 50%;
   padding: 3px 5px;
 }
@@ -126,17 +116,17 @@ svg {
   width: 22px;
   height: 14px;
   background: linear-gradient(
-    #b94432 33.3%,
-    #f1c552 33.3%,
-    #f1c552 66.6%,
-    #357152 66.6%
+    var(--brand-red) 33.3%,
+    var(--brand-gold) 33.3%,
+    var(--brand-gold) 66.6%,
+    var(--brand-green) 66.6%
   );
   flex-shrink: 0;
   position: relative;
 }
 .ghana-stripes:after {
   content: "★";
-  color: #132d2b;
+  color: var(--brand-deep);
   position: absolute;
   left: 8px;
   top: 3px;
@@ -164,15 +154,15 @@ svg {
   height: 17px;
 }
 .cream {
-  background: #faf2d9;
-  color: var(--navy);
+  background: var(--brand-gold);
+  color: var(--brand-deep);
 }
 .dark {
-  background: var(--navy);
+  background: var(--primary);
   color: white;
 }
 .outline {
-  border: 1px solid #bdc8ba;
+  border: 1px solid var(--line-strong);
   background: white;
 }
 .text-button {
@@ -196,7 +186,7 @@ svg {
   align-items: center;
 }
 .trust-strip svg {
-  color: var(--green);
+  color: var(--primary);
   width: 25px;
   height: 25px;
 }
@@ -219,7 +209,7 @@ svg {
   margin-bottom: 24px;
 }
 .muted {
-  color: var(--green);
+  color: var(--primary);
   font-size: 9px;
   letter-spacing: 1.8px;
 }
@@ -366,4 +356,32 @@ select {
   .trust-strip small {
     font-size: 11px;
   }
+}
+
+/* Functional colour states: consistent, restrained, and readable. */
+::selection {
+  background: var(--brand-gold);
+  color: var(--ink);
+}
+input,
+select,
+textarea {
+  accent-color: var(--primary);
+}
+.dark:hover {
+  background: var(--primary-hover);
+}
+.cream:hover {
+  background: #edc200;
+}
+.outline {
+  color: var(--primary);
+  border-color: var(--line-strong);
+}
+.outline:hover {
+  background: var(--surface-green);
+  border-color: var(--primary);
+}
+.text-button:hover {
+  color: var(--primary);
 }

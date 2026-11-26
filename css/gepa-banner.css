@@ -1,0 +1,31 @@
+/* GEPA artwork stays complete at every viewport width. */
+.gepa-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--paper);
+}
+.gepa-banner > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.gepa-banner-actions {
+  position: absolute;
+  top: 36%;
+  left: 3.75%;
+}
+@media (max-width: 580px) {
+  .gepa-banner-actions {
+    top: 10%;
+    right: 3.75%;
+    left: auto;
+  }
+  .gepa-banner-actions .button {
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 8px;
+  }
+}

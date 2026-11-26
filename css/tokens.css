@@ -1,0 +1,26 @@
+/* Colours sampled from the supplied logo, with darker functional companions.
+   Green: actions and trust. Red: occasional emphasis. Gold: highlights.
+   Neutral surfaces keep the products and photography prominent. */
+:root {
+  --brand-red: #ee3541;
+  --brand-green: #03973a;
+  --brand-gold: #fed003;
+  --brand-deep: #0b3823;
+  --primary: #087c35;
+  --primary-hover: #06632b;
+  --red-ink: #b52230;
+  --gold-ink: #705500;
+  --ink: #18251d;
+  --muted: #5e6961;
+  --surface: #ffffff;
+  --paper: #f7f9f6;
+  --surface-green: #edf5ee;
+  --surface-gold: #fff6d7;
+  --surface-red: #ffedf0;
+  --line: #dce5dc;
+  --line-strong: #a9bda9;
+  --line-gold: #dfd29a;
+  --on-dark: #ffffff;
+  --on-dark-muted: #c7ddce;
+  --on-dark-line: #52745e;
+}

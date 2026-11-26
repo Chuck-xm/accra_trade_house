@@ -1,9 +1,11 @@
 /* Stylesheet entry point. Edit the matching component file in css/. */
+@import url("css/tokens.css");
 @import url("css/base.css");
 @import url("css/header.css");
 @import url("css/hero.css");
 @import url("css/catalogue.css");
 @import url("css/trade-and-producers.css");
+@import url("css/gepa-banner.css");
 @import url("css/footer.css");
 @import url("css/dialogs.css");
 @import url("css/market-advert.css");
