@@ -59,6 +59,11 @@ globalThis.localStorage = {
   getItem: (key) => memory.get(key) ?? null,
   setItem: (key, value) => memory.set(key, value),
 };
+const sessionMemory = new Map();
+globalThis.sessionStorage = {
+  getItem: (key) => sessionMemory.get(key) ?? null,
+  setItem: (key, value) => sessionMemory.set(key, value),
+};
 globalThis.FormData = class {
   constructor(form) {
     return Object.entries(form.values);
@@ -97,8 +102,11 @@ const { tradeDesk } = await import("../js/features/trade-desk.js");
 await test("Friday Market advert opens on arrival, closes with ×, and can be reopened", () => {
   assert.equal(element("#modal").open, true);
   assert.equal(element("#modal").className, "market-advert");
-  assert.match(element("#modal-content").innerHTML, /Your Friday/);
-  assert.match(element("#modal-content").innerHTML, /NOVEMBER 2026/);
+  assert.match(element("#modal-content").innerHTML, /Friday Market flyer/);
+  assert.match(
+    element("#modal-content").innerHTML,
+    /assets\/Friday%20Market\.jpg/,
+  );
   emit("#modal .modal-close", "click");
   assert.equal(element("#modal").open, false);
   click({ dataset: { modal: "market" } });
@@ -111,6 +119,37 @@ await test("Friday Market advert opens on arrival, closes with ×, and can be re
     /data-form="Stall application"/,
   );
   emit("#modal .modal-close", "click");
+});
+
+await test("automatic advert stays dismissed in the same session and returns in a new session", async () => {
+  const { initMarketAdvert } = await import("../js/features/market-advert.js");
+  assert.equal(sessionMemory.get("ath-market-advert-seen"), "true");
+  initMarketAdvert();
+  assert.equal(element("#modal").open, false);
+  sessionMemory.clear();
+  initMarketAdvert();
+  assert.equal(element("#modal").open, true);
+  emit("#modal .modal-close", "click");
+});
+
+await test("unavailable session storage does not break the advert", async () => {
+  const { initMarketAdvert } = await import("../js/features/market-advert.js");
+  const workingStorage = globalThis.sessionStorage;
+  globalThis.sessionStorage = {
+    getItem() {
+      throw new Error("Storage unavailable");
+    },
+    setItem() {
+      throw new Error("Storage unavailable");
+    },
+  };
+  try {
+    assert.doesNotThrow(initMarketAdvert);
+    assert.equal(element("#modal").open, true);
+    emit("#modal .modal-close", "click");
+  } finally {
+    globalThis.sessionStorage = workingStorage;
+  }
 });
 
 await test("module entry point renders the catalogue and restores existing saved products", () => {

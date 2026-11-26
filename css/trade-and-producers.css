@@ -1,6 +1,6 @@
 /* Trade And Producers: component styles and responsive adjustments. */
 .trade-banner {
-  background: #173c32;
+  background: var(--brand-deep);
   border-radius: 5px;
   display: grid;
   grid-template-columns: 230px 1fr 210px;
@@ -19,7 +19,7 @@
 }
 .trade-art > span {
   font-size: 72px;
-  color: #ebc771;
+  color: var(--brand-gold);
   font-family: Manrope, sans-serif;
   font-weight: 800;
   z-index: 1;
@@ -27,7 +27,7 @@
 }
 .orbit {
   position: absolute;
-  border: 1px solid #8b9a6a80;
+  border: 1px solid #fed00345;
   border-radius: 50%;
   inset: 10px;
 }
@@ -49,19 +49,19 @@
   left: 91px;
   font-size: 9px;
   letter-spacing: 3px;
-  color: #e8cc8e;
+  color: var(--brand-gold);
 }
 .trade-art i {
   position: absolute;
   right: 20px;
   top: 25px;
   font-size: 33px;
-  color: #e8cc8e;
+  color: var(--brand-gold);
   font-style: normal;
 }
 .trade-copy .eyebrow {
   font-size: 9px;
-  color: #e9ce8e;
+  color: var(--brand-gold);
 }
 .trade-copy h2 {
   font-size: 29px;
@@ -72,7 +72,7 @@
 .trade-copy p {
   font-size: 12px;
   line-height: 1.8;
-  color: #bdcec1;
+  color: var(--on-dark-muted);
   margin-top: 13px;
 }
 .trade-copy .button {
@@ -80,13 +80,13 @@
   font-size: 11px;
 }
 .network-list {
-  border-left: 1px solid #486251;
+  border-left: 1px solid var(--on-dark-line);
   padding-left: 28px;
 }
 .network-list > span {
   font-size: 8px;
   letter-spacing: 1.2px;
-  color: #c0d0bd;
+  color: var(--on-dark-muted);
 }
 .network-list strong {
   display: block;
@@ -97,7 +97,7 @@
 .network-list small {
   font-size: 9px;
   background: #ffffff17;
-  color: #e9d49c;
+  color: var(--brand-gold);
   padding: 4px 6px;
   margin-left: 9px;
 }
@@ -116,7 +116,7 @@
 .producer-card {
   display: grid;
   grid-template-columns: 43% 57%;
-  background: #f5f6f0;
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 5px;
   overflow: hidden;
@@ -129,7 +129,7 @@
 }
 .producer-card > div > span {
   font-size: 8px;
-  color: var(--green);
+  color: var(--primary);
   letter-spacing: 1px;
 }
 .producer-card h3 {
@@ -153,14 +153,14 @@
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  background: #f3e7c3;
+  background: var(--surface-green);
   border-radius: 4px;
   padding: 31px 35px;
   margin-top: 40px;
 }
 .join-banner .eyebrow {
   font-size: 8px;
-  color: #82642d;
+  color: var(--gold-ink);
 }
 .join-banner h2 {
   font-size: 23px;
@@ -169,7 +169,7 @@
 }
 .join-banner p {
   font-size: 11px;
-  color: #6e684e;
+  color: var(--muted);
   margin-top: 9px;
 }
 .join-banner .button {
@@ -194,7 +194,7 @@
 .newsletter form {
   display: flex;
   width: 43%;
-  border: 1px solid #cdd4c7;
+  border: 1px solid var(--line-strong);
   padding: 5px;
   border-radius: 3px;
 }
@@ -208,7 +208,7 @@
 }
 .newsletter button {
   font-size: 11px;
-  background: var(--navy);
+  background: var(--primary);
   color: white;
   border-radius: 2px;
   padding: 10px 17px;
@@ -291,7 +291,7 @@
   }
   .network-list {
     border-left: 0;
-    border-top: 1px solid #486251;
+    border-top: 1px solid var(--on-dark-line);
     padding: 20px 0 0;
     display: flex;
     gap: 12px;
@@ -469,4 +469,21 @@
   .newsletter button {
     font-size: 12px;
   }
+}
+
+.join-banner {
+  border-left: 4px solid var(--brand-green);
+}
+.join-banner .eyebrow {
+  color: var(--primary);
+}
+.newsletter button:hover {
+  background: var(--primary-hover);
+}
+.newsletter form:focus-within {
+  border-color: var(--primary);
+}
+.trade-banner a:focus-visible,
+.trade-banner button:focus-visible {
+  outline-color: var(--brand-gold);
 }

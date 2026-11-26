@@ -16,11 +16,12 @@ Alternatively, open `index.html` with VS Code's Live Server extension using **Go
 
 ## Included flows
 
+- Three hero banners rotate every 7 seconds with an 800ms fade, manual banner selectors, and left/right navigation arrows. Rotation pauses during hero interaction, while the tab is hidden, or while a dialog is open; reduced-motion users start with autoplay paused. The supplied Accra Trade House billboard is shown without cropping.
 - Search by product, producer, category, or region; category filtering; price/name sorting; load more products.
 - Product detail dialogs, saved products, quote/sample requests, and a local trade desk.
 - Producer applications, sourcing briefs, visit requests, and Friday Market stall applications.
-- Friday Market advert opens on every page load, dismissible with ×, Escape, or a backdrop click. Navigation and footer buttons reopen it. The date remains fixed at 27 November 2026 for now.
-- Friday Market calendar download and a demo newsletter preference.
+- Friday Market flyer opens once per tab session, dismissible with ×, Escape, or a backdrop click. Refreshing or navigating within the same tab does not show it again automatically. Navigation and footer buttons reopen it. If session storage is unavailable, it falls back to opening on each page load. The supplied artwork is displayed without cropping, with a link to the full-size image.
+- Demo newsletter preference. Stall applications and the calendar module still use fixed prototype dates; the flyer is displayed as supplied, pending separate scheduling work.
 - Local persistence, validation, empty states, and a control to clear demo data under privacy information.
 
 All products, producer businesses, prices, and profiles are illustrative. Requests remain in this browser under `ath-records`; saved product IDs use `ath-saved`. No requests, emails, subscriptions, payments, authentication, or stock checks are sent to a backend. Use sample contact details during review. Calendar and market dates need staff confirmation.
@@ -30,6 +31,7 @@ All products, producer businesses, prices, and profiles are illustrative. Reques
 - `index.html`: page structure, navigation, and dialog container.
 - `index.js`: short entry point that initializes the feature modules.
 - `index.css`: stylesheet entry point importing component styles.
+- `css/tokens.css`: shared brand palette sampled from the official logo. Green drives actions, red provides restrained accents, and gold highlights key content. Darker companion shades provide readable text and buttons; neutral surfaces keep the catalogue clear.
 - `js/data/catalogue.js`: sample product and category data.
 - `js/core/`: shared state, local storage adapter, modal, toast, icons, formatting, and delegated event helper.
 - `js/features/`: catalogue, product details, navigation, saved products, producers, calendar, privacy, and trade desk. Each module owns its event handlers.
@@ -51,10 +53,10 @@ Images are visual references, not evidence that the displayed items are supplied
 - Additional textile: https://www.etsy.com/listing/1443172680/african-kente-fabric-cloth-handwoven
 - Shea butter reference: https://www.bol.com/nl/nl/p/nature-s-blend-shea-butter-puur-ongeraffineerd-200-ml-huid-en-lichaam/9300000019954490/
 
-Fonts are DM Sans and Manrope from Google Fonts, with local system fallbacks. Product photos are local assets, so the catalogue does not depend on external image requests.
+Fonts are DM Sans and Manrope, with Fraunces for hero headlines, from Google Fonts, with local system fallbacks. Product photos are local assets, so the catalogue does not depend on external image requests.
 
 ## Verification
 
-Seven module integration checks pass with `npm test`, covering initialisation, catalogue filtering and sorting, delegated saved-item actions, independent form flows, enquiry persistence, escaped trade-desk content, producer search, and clearing data. The tests use a small DOM adapter; they do not replace browser layout checks. The local HTTP server returned the homepage successfully.
+Ten automated checks pass with `npm test`, covering hero timing and playback controls, popup session frequency, initialisation, catalogue filtering and sorting, delegated saved-item actions, independent form flows, enquiry persistence, escaped trade-desk content, producer search, and clearing data. The tests use a small DOM adapter; they do not replace browser layout checks. The local HTTP server returned the homepage successfully.
 
 The project owner viewed the prototype through VS Code Go Live on 24 November 2026. Automated browser interaction and mobile viewport checks have not been completed.

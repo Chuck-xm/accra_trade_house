@@ -71,7 +71,6 @@ export function renderProducts() {
                   alt="${p.name}"
                   loading="lazy"
                 /></button
-              ><span class="product-badge">${p.badge}</span
               ><button
                 class="save-product ${state.saved.includes(p.id) ? "saved" : ""}"
                 data-save="${p.id}"

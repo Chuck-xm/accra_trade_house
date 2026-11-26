@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#122d2b" />
+    <meta name="theme-color" content="#0b3823" />
     <meta
       name="description"
       content="Discover Ghanaian products, meet local producers, and connect with new trade opportunities at Accra Trade House."
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="index.css" />
@@ -28,13 +28,15 @@
     <!-- Site header and primary navigation -->
     <header>
       <div class="main-header wrap">
-        <a class="brand" href="./" aria-label="Accra Trade House home"
-          ><span class="brand-symbol">a<span>✦</span></span
-          ><span
-            >ACCRA<br /><strong>TRADE HOUSE</strong
-            ><small>MADE HERE. SHARED EVERYWHERE.</small></span
-          ></a
-        >
+        <a class="brand" href="./" aria-label="Accra Trade House home">
+          <img
+            class="brand-logo"
+            src="assets/accra%20trade%20house.png"
+            alt="Accra Trade House"
+            width="1489"
+            height="692"
+          />
+        </a>
         <form class="search" role="search">
           <label class="sr-only" for="search"
             >Search products and producers</label
@@ -66,10 +68,9 @@
             <span data-icon="menu"></span> Shop by category
             <span class="chevron">⌄</span></button
           ><a href="#collections">Discover products</a
-          ><a href="#producers">Meet our producers</a
           ><button data-modal="market">
             Friday Market <span class="tiny-tag">THIS MONTH</span></button
-          ><a href="#global">Our global network</a
+          ><a href="#global">About GEPA</a
           ><button class="nav-producer" data-modal="producer">
             Become a producer <span>＋</span>
           </button>
@@ -79,39 +80,175 @@
     </header>
     <main>
       <!-- Marketplace hero -->
-      <section class="hero wrap">
-        <div class="hero-main">
-          <div class="hero-copy">
-            <div class="eyebrow">
-              <span class="ghana-stripes"></span> FROM OUR HANDS TO YOUR WORLD
+      <section
+        class="hero"
+        data-hero-carousel
+        aria-label="Accra Trade House highlights"
+        aria-roledescription="carousel"
+      >
+        <div class="hero-slides">
+          <div
+            class="hero-main hero-slide is-active"
+            data-hero-slide
+            role="group"
+            aria-roledescription="slide"
+            aria-label="1 of 3: Ghana, exceptionally made"
+          >
+            <div class="hero-copy">
+              <!-- <div class="eyebrow">
+                <span class="ghana-stripes"></span> FROM OUR HANDS TO YOUR WORLD
+              </div> -->
+              <h1>Ghana,<br />exceptionally<br /><em>made.</em></h1>
+              <p>
+                Discover remarkable products. Meet the people<br
+                  class="desktop-break"
+                />
+                behind them. Trade with a world of possibility.
+              </p>
+              <a class="button cream" href="#collections"
+                >Explore the marketplace <span data-icon="bag"></span
+              ></a>
+              <!-- <div class="hero-bottom">
+                <span>AUTHENTIC ORIGINS</span><i></i
+                ><span>EXTRAORDINARY CRAFT</span>
+              </div> -->
             </div>
-            <h1>Ghana,<br />exceptionally<br /><em>made.</em></h1>
-            <p>
-              Discover remarkable products. Meet the people<br
-                class="desktop-break"
+            <div class="hero-image">
+              <img
+                src="assets/cocoa.jpg"
+                alt="Rich artisan chocolate with cocoa"
+                fetchpriority="high"
               />
-              behind them. Trade with a world of possibility.
-            </p>
-            <a class="button cream" href="#collections"
-              >Explore the marketplace <span data-icon="bag"></span
-            ></a>
-            <div class="hero-bottom">
-              <span>AUTHENTIC ORIGINS</span><i></i
-              ><span>EXTRAORDINARY CRAFT</span>
+              <div class="hero-image-shade"></div>
+              <!-- <span class="image-note">A TASTE OF OUR POTENTIAL</span> -->
+              <div class="image-caption">
+                <!-- <span>Grown with care.<br />Crafted with pride.</span -->
+                <!-- ><span class="round-star">✳</span> -->
+              </div>
             </div>
           </div>
-          <div class="hero-image">
-            <img
-              src="assets/cocoa.jpg"
-              alt="Rich artisan chocolate with cocoa"
-              fetchpriority="high"
-            />
-            <div class="hero-image-shade"></div>
-            <span class="image-note">A TASTE OF OUR POTENTIAL</span>
-            <div class="image-caption">
-              <span>Grown with care.<br />Crafted with pride.</span
-              ><span class="round-star">✳</span>
+          <div
+            class="hero-slide hero-slide--artwork"
+            data-hero-slide
+            role="group"
+            aria-roledescription="slide"
+            aria-label="2 of 3: Shop at wholesale prices"
+            aria-hidden="true"
+            inert
+          >
+            <a class="hero-artwork-link" href="#collections">
+              <img
+                src="assets/Accra%20Trade%20house%20billboard_for%20web.svg"
+                width="1536"
+                height="450"
+                alt="Shop at wholesale prices at Accra Trade House. Made-in-Ghana products at the ground floor of African Trade House, Cruickshank Road, West Ridge."
+                decoding="async"
+              />
+            </a>
+            <div class="hero-billboard-mobile">
+              <h2 class="hero-billboard-title">
+                Shop at<br /><em>wholesale prices!</em>
+              </h2>
+              <img
+                class="hero-billboard-products"
+                src="assets/ath-billboard-products.png"
+                width="427"
+                height="332"
+                alt="Accra Trade House basket filled with Ghanaian food, textiles and crafts"
+                decoding="async"
+              />
+              <a class="button dark" href="#collections"
+                >Shop Made-in-Ghana products</a
+              >
             </div>
+          </div>
+          <div
+            class="hero-main hero-slide"
+            data-hero-slide
+            role="group"
+            aria-roledescription="slide"
+            aria-label="3 of 3: Discover Ghanaian craft"
+            aria-hidden="true"
+            inert
+          >
+            <div class="hero-copy">
+              <!-- <div class="eyebrow">
+                <span class="ghana-stripes"></span> MADE WITH CARE. ROOTED IN
+                GHANA.
+              </div> -->
+              <h2 class="hero-title">
+                Crafted here.<br />Treasured<br /><em>everywhere.</em>
+              </h2>
+              <p>
+                Explore handcrafted pieces for your home and everyday life, made
+                by Ghanaian producers.
+              </p>
+              <a class="button cream" href="#categories"
+                >Discover Ghanaian craft <span data-icon="bag"></span
+              ></a>
+              <!-- <div class="hero-bottom">
+                <span>THOUGHTFUL DESIGN</span><i></i
+                ><span>LASTING CHARACTER</span>
+              </div> -->
+            </div>
+            <div class="hero-image">
+              <img
+                src="assets/basket.jpg"
+                alt="Handwoven basket showcasing Ghanaian craft"
+                decoding="async"
+              />
+              <div class="hero-image-shade"></div>
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="hero-arrow hero-arrow--previous"
+          data-hero-previous
+          aria-label="Previous banner"
+          hidden
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m14 6-6 6 6 6" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="hero-arrow hero-arrow--next"
+          data-hero-next
+          aria-label="Next banner"
+          hidden
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m10 6 6 6-6 6" />
+          </svg>
+        </button>
+        <div class="hero-controls" hidden>
+          <div class="hero-selectors" role="group" aria-label="Choose a banner">
+            <button
+              type="button"
+              data-hero-select="0"
+              aria-label="Show banner 1: Ghana, exceptionally made"
+              aria-pressed="true"
+            >
+              <span></span>
+            </button>
+            <button
+              type="button"
+              data-hero-select="1"
+              aria-label="Show banner 2: Shop at wholesale prices"
+              aria-pressed="false"
+            >
+              <span></span>
+            </button>
+            <button
+              type="button"
+              data-hero-select="2"
+              aria-label="Show banner 3: Discover Ghanaian craft"
+              aria-pressed="false"
+            >
+              <span></span>
+            </button>
           </div>
         </div>
       </section>
@@ -163,15 +300,16 @@
       <section class="wrap products-section" id="collections">
         <div class="section-heading">
           <div>
-            <span class="eyebrow muted"
-              >CURATED IN ACCRA. LOVED EVERYWHERE.</span
-            >
             <h2 id="products-title">Discover something worth sharing.</h2>
           </div>
-          <span class="section-aside">Made in Ghana. Made for you.</span>
         </div>
         <div class="product-toolbar">
-          <div class="filter-tabs" id="filter-tabs"></div>
+          <div
+            class="filter-tabs"
+            id="filter-tabs"
+            role="group"
+            aria-label="Filter products by category"
+          ></div>
           <label class="sort-label"
             >Sort by
             <select id="sort">
@@ -190,95 +328,30 @@
           ><span id="product-total"></span>
         </div>
       </section>
-      <!-- Global trade network -->
-      <section class="wrap trade-banner" id="global">
-        <div class="trade-art" aria-hidden="true">
-          <span>GH</span>
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <b>ACCRA</b><i>✦</i>
+      <!-- GEPA advertisement -->
+      <section
+        class="wrap gepa-banner"
+        id="global"
+        aria-label="Ghana Export Promotion Authority"
+      >
+        <img
+          src="assets/gepa%20social%20add_for%20web.svg?v=51bd7c9c"
+          alt="Ghana Export Promotion Authority — Let’s grow Ghana, one export at a time. Explore Ghanaian products and export opportunities."
+          width="4410"
+          height="1407"
+          loading="lazy"
+        />
+        <div class="gepa-banner-actions">
+          <a
+            class="button dark"
+            href="https://www.gepaghana.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit GEPA website <span aria-hidden="true">↗</span>
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
         </div>
-        <div class="trade-copy">
-          <span class="eyebrow">YOUR NEXT CONNECTION STARTS HERE</span>
-          <h2>From a local discovery<br />to a global opportunity.</h2>
-          <p>
-            Sourcing for your business? Connect with Ghanaian producers<br
-              class="desktop-break"
-            />
-            for wholesale, custom orders, and international trade.
-          </p>
-          <button class="button cream" data-modal="sourcing">
-            Tell us what you’re looking for <span data-icon="globe"></span>
-          </button>
-        </div>
-        <div class="network-list">
-          <span>OUR TRADE HOUSE NETWORK</span
-          ><strong>Accra <small>Our home</small></strong
-          ><strong>London</strong><strong>Nairobi</strong
-          ><strong>Philadelphia</strong>
-        </div>
-      </section>
-      <!-- Producer stories -->
-      <section class="wrap producer-section" id="producers">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow muted">BEHIND EVERY PRODUCT, A PERSON</span>
-            <h2>Meet the hands that make it.</h2>
-          </div>
-          <span class="demo-label">Illustrative producer profiles</span>
-        </div>
-        <div class="producer-grid">
-          <article class="producer-card">
-            <img
-              src="assets/farm.jpg"
-              alt="Farmer tending a green field"
-              loading="lazy"
-            />
-            <div>
-              <span>FOOD & AGRICULTURE · EASTERN REGION</span>
-              <h3>Good things start at the source.</h3>
-              <p>
-                Meet the growers turning Ghana’s rich soil into remarkable
-                everyday ingredients.
-              </p>
-              <button class="text-button" data-producer="Adom Harvest Co.">
-                Meet Adom Harvest <span>＋</span>
-              </button>
-            </div>
-          </article>
-          <article class="producer-card">
-            <img
-              src="assets/studio.jpg"
-              alt="Artisan workspace with handmade materials"
-              loading="lazy"
-            />
-            <div>
-              <span>CRAFT & HOME · GREATER ACCRA</span>
-              <h3>Tradition, with a fresh perspective.</h3>
-              <p>
-                Thoughtfully made pieces that carry the creativity and character
-                of their makers.
-              </p>
-              <button class="text-button" data-producer="Nsuromma Studio">
-                Meet Nsuromma Studio <span>＋</span>
-              </button>
-            </div>
-          </article>
-        </div>
-      </section>
-      <!-- Producer invitation -->
-      <section class="wrap join-banner">
-        <div>
-          <span class="eyebrow">BUILT HERE. BOUND FOR MORE.</span>
-          <h2>You make it. Let’s help the world find it.</h2>
-          <p>
-            Bring your Ghanaian products to a marketplace built for your next
-            chapter.
-          </p>
-        </div>
-        <button class="button dark" data-modal="producer">
-          Join our producer community <span data-icon="people"></span>
-        </button>
       </section>
       <!-- Newsletter -->
       <section class="newsletter wrap">
@@ -301,19 +374,27 @@
     <footer>
       <div class="wrap footer-grid">
         <div>
-          <a class="brand footer-brand" href="./"
-            ><span class="brand-symbol">a<span>✦</span></span
-            ><span>ACCRA<br /><strong>TRADE HOUSE</strong></span></a
+          <a
+            class="brand footer-brand"
+            href="./"
+            aria-label="Accra Trade House home"
           >
+            <img
+              class="brand-logo"
+              src="assets/accra%20trade%20house.png"
+              alt="Accra Trade House"
+              width="1489"
+              height="692"
+            />
+          </a>
           <p>A home for Ghanaian excellence.<br />A gateway to the world.</p>
           <span class="ghana-stripes"></span>
         </div>
         <div>
           <h4>Discover</h4>
           <a href="#collections">Our marketplace</a
-          ><a href="#producers">Our producers</a
           ><button data-modal="market">Friday Market</button
-          ><a href="#global">Global trade houses</a>
+          ><a href="#global">About GEPA</a>
         </div>
         <div>
           <h4>Let’s do business</h4>

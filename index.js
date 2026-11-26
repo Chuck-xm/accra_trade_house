@@ -13,6 +13,7 @@ import { initFlows } from "./js/forms/index.js";
 import { initEnquiries } from "./js/forms/enquiry.js";
 import { initSubmissions } from "./js/forms/submissions.js";
 import { initMarketAdvert } from "./js/features/market-advert.js";
+import { initHeroCarousel } from "./js/features/hero-carousel.js";
 import { initNewsletter } from "./js/forms/newsletter.js";
 
 initIcons();
@@ -29,6 +30,7 @@ initFlows();
 initEnquiries();
 initSubmissions();
 initNewsletter();
+initHeroCarousel();
 
-// Show the Friday Market promotion on every page load.
+// Showing the Friday Market promotion once per tab session.
 initMarketAdvert();
