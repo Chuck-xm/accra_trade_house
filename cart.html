@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b3823" />
+    <meta
+      name="description"
+      content="Review your retail cart and preview a local demo order at Accra Trade House."
+    />
+    <title>Your cart — Accra Trade House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/product-page.css" />
+    <script type="module" src="cart.js"></script>
+  </head>
+  <body>
+    <div class="announcement">
+      <span>A home for Ghanaian excellence. A gateway to the world.</span
+      ><span class="announcement-right"
+        >An initiative of GEPA <i></i> Accra, Ghana</span
+      >
+    </div>
+    <!-- Site header and primary navigation -->
+    <header>
+      <div class="main-header wrap">
+        <a class="brand" href="./" aria-label="Accra Trade House home">
+          <img
+            class="brand-logo"
+            src="assets/accra%20trade%20house.png"
+            alt="Accra Trade House"
+            width="1489"
+            height="692"
+          />
+        </a>
+        <form class="search" role="search" action="index.html" method="get">
+          <label class="sr-only" for="search"
+            >Search products and producers</label
+          ><span data-icon="search"></span
+          ><input
+            id="search"
+            name="q"
+            type="search"
+            placeholder="Find a little Ghana. Products, producers & more"
+          /><button type="submit">Search</button>
+        </form>
+        <div class="header-actions">
+          <a
+            class="icon-button"
+            href="cart.html"
+            aria-label="View shopping cart"
+            ><span data-icon="bag"></span><span class="action-label">Cart</span
+            ><b id="cart-count" aria-live="polite">0</b></a
+          >
+          <button
+            class="icon-button"
+            id="saved-button"
+            aria-label="View saved products"
+          >
+            <span data-icon="heart"></span
+            ><span class="action-label">Saved</span
+            ><b id="saved-count">0</b></button
+          ><button
+            class="icon-button"
+            id="account-button"
+            aria-label="My trade desk"
+          >
+            <span data-icon="user"></span
+            ><span class="action-label">My trade desk</span>
+          </button>
+        </div>
+      </div>
+      <div class="nav-border">
+        <nav class="wrap navigation" aria-label="Main navigation">
+          <button id="categories-button">
+            <span data-icon="menu"></span> Shop by category
+            <span class="chevron">⌄</span></button
+          ><a href="index.html#collections">Discover products</a
+          ><button data-modal="market">
+            Friday Market <span class="tiny-tag">THIS MONTH</span></button
+          ><a href="index.html#global">About GEPA</a
+          ><button class="nav-producer" data-modal="producer">
+            Become a producer <span>＋</span>
+          </button>
+        </nav>
+      </div>
+      <div id="category-menu" class="category-menu wrap" hidden></div>
+    </header>
+    <main class="cart-page wrap">
+      <a class="product-back" href="index.html#collections"
+        >← Continue shopping</a
+      >
+      <div class="cart-heading">
+        <div>
+          <span class="eyebrow muted">RETAIL AT ACCRA TRADE HOUSE</span>
+          <h1>Your cart</h1>
+        </div>
+        <p id="cart-item-summary" aria-live="polite"></p>
+      </div>
+      <section id="cart-empty" class="cart-empty" hidden>
+        <h2>Your cart is waiting for a discovery.</h2>
+        <p>
+          Shop individual items and smaller quantities from our marketplace.
+        </p>
+        <a class="button dark" href="index.html#collections"
+          >Explore products</a
+        >
+      </section>
+      <div id="cart-layout" class="cart-layout" hidden>
+        <section class="cart-items" aria-label="Products in your cart">
+          <div id="cart-lines"></div>
+          <p class="cart-small-print">
+            Sample products and prices for prototype review. Retail quantities
+            start at one product unit; wholesale minimums apply to quote
+            requests.
+          </p>
+        </section>
+        <aside class="cart-checkout" aria-labelledby="checkout-heading">
+          <h2 id="checkout-heading">Order summary</h2>
+          <div class="cart-subtotal">
+            <span>Product subtotal</span
+            ><strong id="cart-subtotal" aria-live="polite"></strong>
+          </div>
+          <p class="cart-small-print">
+            Delivery and any applicable charges are not calculated in this
+            prototype. Final availability and pricing require confirmation.
+          </p>
+          <h3>Checkout details <span>Demo</span></h3>
+          <form id="retail-checkout" class="modal-form">
+            <label
+              >Your name<input
+                type="text"
+                name="name"
+                required
+                maxlength="200"
+                autocomplete="name"
+                placeholder="Demo customer"
+            /></label>
+            <label
+              >Email address<input
+                type="email"
+                name="email"
+                required
+                maxlength="200"
+                autocomplete="email"
+                placeholder="demo@example.com"
+            /></label>
+            <label
+              >Phone number (optional)<input
+                type="tel"
+                name="phone"
+                maxlength="200"
+                autocomplete="tel"
+            /></label>
+            <label
+              >Collection or delivery<select name="fulfilment">
+                <option value="Pickup">Pickup from the Trade House</option>
+                <option value="Delivery request">
+                  Request delivery arrangements
+                </option>
+              </select></label
+            >
+            <label id="cart-delivery-field" hidden
+              >Delivery address<textarea
+                name="address"
+                maxlength="1000"
+                autocomplete="street-address"
+              ></textarea>
+            </label>
+            <label
+              >Order notes (optional)<textarea
+                name="notes"
+                maxlength="1000"
+                placeholder="Anything you would like ATH to know"
+              ></textarea>
+            </label>
+            <p class="form-note">
+              Use sample contact details. This checkout saves a demo order in
+              this browser only. No payment is collected and nothing is sent to
+              ATH.
+            </p>
+            <button class="button dark" type="submit">Save demo order</button>
+          </form>
+        </aside>
+      </div>
+      <section
+        id="cart-success"
+        class="cart-success"
+        tabindex="-1"
+        aria-live="polite"
+        hidden
+      ></section>
+    </main>
+    <noscript
+      ><p class="wrap">Enable JavaScript to use the shopping cart.</p></noscript
+    >
+    <!-- Site footer -->
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <a
+            class="brand footer-brand"
+            href="./"
+            aria-label="Accra Trade House home"
+          >
+            <img
+              class="brand-logo"
+              src="assets/accra%20trade%20house.png"
+              alt="Accra Trade House"
+              width="1489"
+              height="692"
+            />
+          </a>
+          <p>A home for Ghanaian excellence.<br />A gateway to the world.</p>
+          <span class="ghana-stripes"></span>
+        </div>
+        <div>
+          <h4>Discover</h4>
+          <a href="index.html#collections">Our marketplace</a
+          ><button data-modal="market">Friday Market</button
+          ><a href="index.html#global">About GEPA</a>
+        </div>
+        <div>
+          <h4>Let’s do business</h4>
+          <button data-modal="producer">Become a producer</button
+          ><button data-modal="sourcing">Source from Ghana</button
+          ><button data-modal="stall">Apply for a market stall</button
+          ><button data-modal="contact">Contact the Trade House</button>
+        </div>
+        <div>
+          <h4>Come say hello</h4>
+          <p>Accra Trade House<br />Accra, Ghana</p>
+          <button class="footer-contact" data-modal="contact">
+            Plan your visit
+          </button>
+          <p class="footer-gepa">
+            An initiative of<br /><strong
+              >Ghana Export Promotion Authority</strong
+            >
+          </p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>© 2026 Accra Trade House.</span
+        ><span
+          >Interactive prototype · Sample products & prices · No payments</span
+        ><button data-modal="privacy">Privacy & prototype information</button>
+      </div>
+    </footer>
+    <dialog id="modal" aria-labelledby="dialog-title">
+      <button class="modal-close icon-button" aria-label="Close dialog">
+        ×
+      </button>
+      <div id="modal-content"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

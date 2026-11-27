@@ -14,15 +14,6 @@ export function showMarket() {
           height="2480"
           alt="Flyer advertising GEPA Friday Market on 19 December 2026, 7am–7pm, at Africa Trade House Forecourt, featuring Made-in-Ghana products."
         />
-        <a
-          class="market-flyer-link"
-          href="assets/Friday%20Market.jpg"
-          target="_blank"
-          rel="noopener noreferrer"
-          >View full-size flyer<span class="sr-only">
-            (opens in a new tab)</span
-          ></a
-        >
       </section>
     `,
     { className: "market-advert" },

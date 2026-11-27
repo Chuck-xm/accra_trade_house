@@ -46,7 +46,8 @@ function element(key) {
   return elements.get(key);
 }
 globalThis.document = {
-  querySelector: element,
+  querySelector: (selector) =>
+    selector.startsWith("[data-retail-quantity=") ? null : element(selector),
   querySelectorAll: () => [],
   activeElement: { focus() {} },
   addEventListener(type, callback) {
@@ -96,7 +97,6 @@ function emit(selector, type, event = {}) {
 await import("../index.js");
 const { state } = await import("../js/core/state.js");
 const catalogue = await import("../js/features/catalogue.js");
-const { productDetails } = await import("../js/features/product-details.js");
 const { tradeDesk } = await import("../js/features/trade-desk.js");
 
 await test("Friday Market advert opens on arrival, closes with ×, and can be reopened", () => {
@@ -196,12 +196,13 @@ await test("saved product delegation persists once and refreshes cards and saved
     /Single-origin dark chocolate/,
   );
 });
-await test("product details and independent form modules open through delegated actions", () => {
-  productDetails(1);
+await test("products link to dedicated pages and independent form modules still open", () => {
+  catalogue.resetFilters();
   assert.match(
-    element("#modal-content").innerHTML,
-    /Single-origin dark chocolate/,
+    element("#product-grid").innerHTML,
+    /href="product\.html\?id=1"/,
   );
+  assert.doesNotMatch(element("#product-grid").innerHTML, /data-product=/);
   click({ dataset: { enquire: "1" } });
   assert.match(
     element("#modal-content").innerHTML,
@@ -219,6 +220,24 @@ await test("product details and independent form modules open through delegated 
     assert.match(element("#modal-content").innerHTML, /id="dialog-title"/);
   }
 });
+await test("product card cart buttons add one retail unit without opening the wholesale dialog", () => {
+  catalogue.resetFilters();
+  const html = element("#product-grid").innerHTML;
+  assert.match(html, /data-add-cart="1"/);
+  assert.doesNotMatch(html, /data-enquire=/);
+  emit("#modal .modal-close", "click");
+  const previousContent = element("#modal-content").innerHTML;
+  click({ dataset: { addCart: "1" } });
+  assert.deepEqual(JSON.parse(memory.get("ath-cart")), [
+    { productId: 1, quantity: 1 },
+  ]);
+  assert.equal(element("#cart-count").textContent, 1);
+  click({ dataset: { addCart: "1" } });
+  assert.equal(state.cart[0].quantity, 2);
+  assert.equal(element("#modal").open, false);
+  assert.equal(element("#modal-content").innerHTML, previousContent);
+});
+
 await test("form submission persists to the same storage key and appears in the trade desk", () => {
   const form = {
     dataset: { form: "Product enquiry" },

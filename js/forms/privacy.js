@@ -8,14 +8,15 @@ export function showPrivacy() {
       <p class="modal-description">
         This is an independent concept prototype for review, not a live GEPA
         service. Products, producer profiles, prices, and product photography
-        are illustrative. There is no checkout, payment, account authentication,
-        or live stock system.
+        are illustrative. There is no live checkout, payment, account
+        authentication, or live stock system.
       </p>
       <p class="modal-description">
-        Saved products, form submissions, and newsletter preferences are stored
-        locally in this browser. Nothing is sent to producers or the Trade
-        House. Avoid entering sensitive or real personal information. External
-        fonts and stock photography may load from third-party providers.
+        Cart contents, saved products, demo orders, form submissions, and
+        newsletter preferences are stored locally in this browser. Nothing is
+        sent to producers or the Trade House. Avoid entering sensitive or real
+        personal information. External fonts and stock photography may load from
+        third-party providers.
       </p>
       <button class="button outline" id="clear-demo-data">
         Clear all local demo data

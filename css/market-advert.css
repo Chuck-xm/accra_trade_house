@@ -42,21 +42,3 @@
   margin-inline: auto;
   object-fit: contain;
 }
-.market-flyer-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 12px 24px;
-  font-size: 14px;
-  color: white;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-.market-flyer-link:hover {
-  background: #ffffff14;
-}
-.market-flyer-link:focus-visible {
-  outline: 3px solid #fed003;
-  outline-offset: -4px;
-}

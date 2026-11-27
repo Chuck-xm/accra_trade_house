@@ -203,3 +203,12 @@ body:has(dialog[open]) {
     height: 210px;
   }
 }
+
+.saved-product-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}

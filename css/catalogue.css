@@ -98,7 +98,7 @@
   position: relative;
   overflow: hidden;
 }
-.product-image > button:first-child {
+.product-image > a:first-child {
   display: block;
   padding: 0;
   height: 100%;
@@ -182,16 +182,16 @@
   font-weight: 400;
   color: var(--muted);
 }
-.enquire-button {
+.card-cart-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 29px;
-  height: 29px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line-strong);
   border-radius: 3px;
 }
-.enquire-button svg {
+.card-cart-button svg {
   height: 14px;
   width: 14px;
 }
@@ -357,7 +357,7 @@
 .sort-label,
 .sort-label select,
 .product-price,
-.enquire-button {
+.card-cart-button {
   font-size: 14px;
 }
 .category-card small,
