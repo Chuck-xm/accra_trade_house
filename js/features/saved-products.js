@@ -5,6 +5,7 @@ import { photo, money } from "../core/utils.js";
 import { showModal } from "../core/modal.js";
 import { toast } from "../core/toast.js";
 import { onAction } from "../core/events.js";
+import { productUrl } from "./product-details.js";
 import { renderProducts } from "./catalogue.js";
 export function savedList() {
   showModal(
@@ -26,7 +27,9 @@ export function savedList() {
                   <div>
                     <strong>${p.name}</strong>
                     <p>${p.producer} · ${money(p.price)}</p>
-                    <button data-product="${p.id}">View product</button>
+                    <a class="saved-product-link" href="${productUrl(p.id)}"
+                      >View product</a
+                    >
                   </div>
                   <button
                     data-remove-save="${p.id}"
@@ -42,7 +45,26 @@ export function savedList() {
       </div>`,
   );
 }
+export function updateSavedControls() {
+  document.querySelectorAll("[data-save]").forEach((button) => {
+    const product = products.find(
+      (item) => item.id === Number(button.dataset.save),
+    );
+    if (!product) return;
+    const saved = state.saved.includes(product.id);
+    button.setAttribute("aria-pressed", String(saved));
+    button.setAttribute(
+      "aria-label",
+      `${saved ? "Unsave" : "Save"} ${product.name}`,
+    );
+    button.classList.toggle("saved", saved);
+    const label = button.querySelector("[data-save-label]");
+    if (label) label.textContent = saved ? "Product saved" : "Save product";
+  });
+}
+
 export function initSavedProducts() {
+  updateSavedControls();
   document.querySelector("#saved-button").addEventListener("click", savedList);
   onAction("[data-save]", (target) => {
     const id = Number(target.dataset.save);
@@ -51,6 +73,7 @@ export function initSavedProducts() {
       : [...state.saved, id];
     const persisted = storage.set("saved", state.saved);
     renderProducts();
+    updateSavedControls();
     toast(
       persisted
         ? state.saved.includes(id)
@@ -65,6 +88,7 @@ export function initSavedProducts() {
     );
     storage.set("saved", state.saved);
     renderProducts();
+    updateSavedControls();
     savedList();
   });
 }

@@ -1,6 +1,6 @@
 # Accra Trade House prototype
 
-A responsive, enquiry-led marketplace prototype using plain HTML, CSS, and JavaScript. No installation or build step is required.
+A responsive retail and wholesale marketplace prototype using plain HTML, CSS, and JavaScript. No installation or build step is required.
 
 ## Preview
 
@@ -18,18 +18,25 @@ Alternatively, open `index.html` with VS Code's Live Server extension using **Go
 
 - Three hero banners rotate every 7 seconds with an 800ms fade, manual banner selectors, and left/right navigation arrows. Rotation pauses during hero interaction, while the tab is hidden, or while a dialog is open; reduced-motion users start with autoplay paused. The supplied Accra Trade House billboard is shown without cropping.
 - Search by product, producer, category, or region; category filtering; price/name sorting; load more products.
-- Product detail dialogs, saved products, quote/sample requests, and a local trade desk.
+- Dedicated product preview pages (`product.html?id=1`), saved products, retail cart actions, wholesale quote requests, and a local trade desk. Product previews support direct links and refresh, with an explicit recovery screen for missing or invalid product IDs. Enquiry forms remain dialogs.
+- Retail cart (`cart.html`) with quantities from one product unit, line totals, a product subtotal, removal controls, and local persistence under `ath-cart`. The prototype accepts 1–99 of each product; wholesale minimums do not apply to retail orders.
+- Demo checkout saves a retail order and its item/price snapshot under `ath-records`, then clears the cart. Choose pickup or request delivery arrangements. No payment or live order is sent; delivery charges and applicable fees are not calculated.
 - Producer applications, sourcing briefs, visit requests, and Friday Market stall applications.
-- Friday Market flyer opens once per tab session, dismissible with ×, Escape, or a backdrop click. Refreshing or navigating within the same tab does not show it again automatically. Navigation and footer buttons reopen it. If session storage is unavailable, it falls back to opening on each page load. The supplied artwork is displayed without cropping, with a link to the full-size image.
+- Friday Market flyer opens once per tab session, dismissible with ×, Escape, or a backdrop click. Refreshing or navigating within the same tab does not show it again automatically. Navigation and footer buttons reopen it. If session storage is unavailable, it falls back to opening on each page load. The supplied artwork is displayed without cropping, without an additional full-size link.
 - Demo newsletter preference. Stall applications and the calendar module still use fixed prototype dates; the flyer is displayed as supplied, pending separate scheduling work.
 - Local persistence, validation, empty states, and a control to clear demo data under privacy information.
 
-All products, producer businesses, prices, and profiles are illustrative. Requests remain in this browser under `ath-records`; saved product IDs use `ath-saved`. No requests, emails, subscriptions, payments, authentication, or stock checks are sent to a backend. Use sample contact details during review. Calendar and market dates need staff confirmation.
+All products, producer businesses, prices, and profiles are illustrative. Requests remain in this browser under `ath-records`; saved product IDs use `ath-saved`. No orders, requests, emails, subscriptions, payments, authentication, or stock checks are sent to a backend. Use sample contact details during review. Calendar and market dates need staff confirmation.
 
 ## Files and Django handover
 
 - `index.html`: page structure, navigation, and dialog container.
-- `index.js`: short entry point that initializes the feature modules.
+- `index.js`: homepage entry point that initializes the feature modules.
+- `product.html` / `product.js` / `css/product-page.css`: dedicated product page, responsive layout, and shared enquiry/saved-product workflows.
+- `js/features/product-page.js`: page rendering and listing details; `product-details.js`: product URL and query resolution.
+- `cart.html` / `cart.js` / `css/cart.css`: dedicated retail cart and local demo checkout.
+- `js/core/cart.js`: validated cart lines, retail quantities, and totals; `js/features/cart.js`: shared cart actions; `cart-page.js`: cart UI; `retail-orders.js`: local order snapshots.
+- `js/components/product-card.js`: shared linked cards for the homepage and related products.
 - `index.css`: stylesheet entry point importing component styles.
 - `css/tokens.css`: shared brand palette sampled from the official logo. Green drives actions, red provides restrained accents, and gold highlights key content. Darker companion shades provide readable text and buttons; neutral surfaces keep the catalogue clear.
 - `js/data/catalogue.js`: sample product and category data.
@@ -40,7 +47,7 @@ All products, producer businesses, prices, and profiles are illustrative. Reques
 - `tests/prototype.test.mjs`: module and feature integration regression checks. Run `npm test`.
 - `assets/`: downloaded reference photography.
 
-For Django, move page markup into templates and CSS/JS/images into static files. Replace the sample `products` and `categories` arrays with catalogue data, and replace `js/forms/submissions.js` and `js/core/storage.js` with validated server endpoints. Add Django authentication, producer and staff permissions, CSRF protection, approval workflows, and server-managed enquiries before production use. Product records and physical inventory should remain distinct. Keep displayed prices indicative until commercial terms are confirmed.
+For Django, move page markup into templates and CSS/JS/images into static files. Replace the sample `products` and `categories` arrays with catalogue data, and replace `js/forms/submissions.js` and `js/core/storage.js` with validated server endpoints. Add Django authentication, producer and staff permissions, CSRF protection, approval workflows, and server-managed enquiries before production use. Replace local retail orders with Django order records, revalidate prices and inventory on the server, calculate fulfilment charges, and integrate payments before live purchases. Product records and physical inventory should remain distinct. Keep displayed prices indicative until commercial terms are confirmed.
 
 ## Photography references
 
@@ -57,6 +64,6 @@ Fonts are DM Sans and Manrope, with Fraunces for hero headlines, from Google Fon
 
 ## Verification
 
-Ten automated checks pass with `npm test`, covering hero timing and playback controls, popup session frequency, initialisation, catalogue filtering and sorting, delegated saved-item actions, independent form flows, enquiry persistence, escaped trade-desk content, producer search, and clearing data. The tests use a small DOM adapter; they do not replace browser layout checks. The local HTTP server returned the homepage successfully.
+Twenty-two automated checks pass with `npm test`, covering direct product links, invalid IDs, page saving, retail quantities and totals, cart persistence and validation, retail card buttons without wholesale popups, delivery fields, checkout and failed-save recovery, wholesale enquiries, escaped listing data, hero timing and playback controls, popup session frequency, initialisation, catalogue filtering and sorting, delegated saved-item actions, independent form flows, enquiry persistence, escaped trade-desk content, producer search, and clearing data. The tests use a small DOM adapter; they do not replace browser layout checks. The local HTTP server returned the homepage successfully.
 
 The project owner viewed the prototype through VS Code Go Live on 24 November 2026. Automated browser interaction and mobile viewport checks have not been completed.

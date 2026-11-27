@@ -1,7 +1,7 @@
 import { categories, products } from "../data/catalogue.js";
 import { state } from "../core/state.js";
-import { icon } from "../core/icons.js";
-import { photo, money } from "../core/utils.js";
+import { photo } from "../core/utils.js";
+import { productCard } from "../components/product-card.js";
 import { onAction } from "../core/events.js";
 import { closeCategoryMenu } from "./navigation.js";
 const grid = document.querySelector("#product-grid");
@@ -57,48 +57,13 @@ export function filteredProducts() {
   return list;
 }
 export function renderProducts() {
+  if (!grid) {
+    updateSavedCount();
+    return;
+  }
   const list = filteredProducts();
   grid.innerHTML =
-    list
-      .slice(0, state.limit)
-      .map(
-        (p) =>
-          /* HTML */ `<article class="product-card">
-            <div class="product-image">
-              <button data-product="${p.id}" aria-label="View ${p.name}">
-                <img
-                  src="${photo(p.image)}"
-                  alt="${p.name}"
-                  loading="lazy"
-                /></button
-              ><button
-                class="save-product ${state.saved.includes(p.id) ? "saved" : ""}"
-                data-save="${p.id}"
-                aria-label="${state.saved.includes(p.id) ? "Unsave" : "Save"} ${p.name}"
-                aria-pressed="${state.saved.includes(p.id)}"
-              >
-                ${icon("heart")}
-              </button>
-            </div>
-            <div class="product-category">${p.category}</div>
-            <button class="product-name" data-product="${p.id}">
-              ${p.name}
-            </button>
-            <div class="producer-name">${p.producer}</div>
-            <div class="product-price-row">
-              <span class="product-price"
-                >${money(p.price)} <small>/ ${p.unit}</small></span
-              ><button
-                class="enquire-button"
-                data-enquire="${p.id}"
-                aria-label="Enquire about ${p.name}"
-              >
-                ${icon("bag")}
-              </button>
-            </div>
-          </article>`,
-      )
-      .join("") ||
+    list.slice(0, state.limit).map(productCard).join("") ||
     '<div class="empty-state"><h3>No discoveries just yet.</h3><p>Try a different search or browse all our products.</p><button class="button dark" id="reset-filters">Show all products</button></div>';
   document.querySelector("#results-note").textContent = state.query
     ? `${list.length} ${list.length === 1 ? "result" : "results"} for “${state.query}”`
@@ -168,6 +133,12 @@ export function initCatalogue() {
     resetFilters();
     selectCategory("All products");
   });
+  const params = new URLSearchParams(globalThis.location?.search ?? "");
+  const category = params.get("category");
+  if (categories.some((item) => item.name === category))
+    state.activeCategory = category;
+  state.query = (params.get("q") ?? "").trim().toLowerCase();
+  document.querySelector("#search").value = params.get("q") ?? "";
   renderCategories();
   renderProducts();
 }

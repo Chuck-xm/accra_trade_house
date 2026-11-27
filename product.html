@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b3823" />
+    <meta
+      name="description"
+      content="Explore Ghanaian products, add retail quantities to your cart, or request a wholesale quote at Accra Trade House."
+    />
+    <title>Product preview — Accra Trade House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/product-page.css" />
+    <script type="module" src="product.js"></script>
+  </head>
+  <body>
+    <div class="announcement">
+      <span>A home for Ghanaian excellence. A gateway to the world.</span
+      ><span class="announcement-right"
+        >An initiative of GEPA <i></i> Accra, Ghana</span
+      >
+    </div>
+    <!-- Site header and primary navigation -->
+    <header>
+      <div class="main-header wrap">
+        <a class="brand" href="./" aria-label="Accra Trade House home">
+          <img
+            class="brand-logo"
+            src="assets/accra%20trade%20house.png"
+            alt="Accra Trade House"
+            width="1489"
+            height="692"
+          />
+        </a>
+        <form class="search" role="search" action="index.html" method="get">
+          <label class="sr-only" for="search"
+            >Search products and producers</label
+          ><span data-icon="search"></span
+          ><input
+            id="search"
+            name="q"
+            type="search"
+            placeholder="Find a little Ghana. Products, producers & more"
+          /><button type="submit">Search</button>
+        </form>
+        <div class="header-actions">
+          <a
+            class="icon-button"
+            href="cart.html"
+            aria-label="View shopping cart"
+            ><span data-icon="bag"></span><span class="action-label">Cart</span
+            ><b id="cart-count" aria-live="polite">0</b></a
+          >
+          <button
+            class="icon-button"
+            id="saved-button"
+            aria-label="View saved products"
+          >
+            <span data-icon="heart"></span
+            ><span class="action-label">Saved</span
+            ><b id="saved-count">0</b></button
+          ><button
+            class="icon-button"
+            id="account-button"
+            aria-label="My trade desk"
+          >
+            <span data-icon="user"></span
+            ><span class="action-label">My trade desk</span>
+          </button>
+        </div>
+      </div>
+      <div class="nav-border">
+        <nav class="wrap navigation" aria-label="Main navigation">
+          <button id="categories-button">
+            <span data-icon="menu"></span> Shop by category
+            <span class="chevron">⌄</span></button
+          ><a href="index.html#collections">Discover products</a
+          ><button data-modal="market">
+            Friday Market <span class="tiny-tag">THIS MONTH</span></button
+          ><a href="index.html#global">About GEPA</a
+          ><button class="nav-producer" data-modal="producer">
+            Become a producer <span>＋</span>
+          </button>
+        </nav>
+      </div>
+      <div id="category-menu" class="category-menu wrap" hidden></div>
+    </header>
+    <main class="product-page wrap" id="product-page">
+      <p class="product-loading" role="status">Loading product…</p>
+    </main>
+    <noscript
+      ><p class="wrap">
+        Enable JavaScript to view product details, or
+        <a href="index.html#collections">return to the marketplace</a>.
+      </p></noscript
+    >
+    <!-- Site footer -->
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <a
+            class="brand footer-brand"
+            href="./"
+            aria-label="Accra Trade House home"
+          >
+            <img
+              class="brand-logo"
+              src="assets/accra%20trade%20house.png"
+              alt="Accra Trade House"
+              width="1489"
+              height="692"
+            />
+          </a>
+          <p>A home for Ghanaian excellence.<br />A gateway to the world.</p>
+          <span class="ghana-stripes"></span>
+        </div>
+        <div>
+          <h4>Discover</h4>
+          <a href="index.html#collections">Our marketplace</a
+          ><button data-modal="market">Friday Market</button
+          ><a href="index.html#global">About GEPA</a>
+        </div>
+        <div>
+          <h4>Let’s do business</h4>
+          <button data-modal="producer">Become a producer</button
+          ><button data-modal="sourcing">Source from Ghana</button
+          ><button data-modal="stall">Apply for a market stall</button
+          ><button data-modal="contact">Contact the Trade House</button>
+        </div>
+        <div>
+          <h4>Come say hello</h4>
+          <p>Accra Trade House<br />Accra, Ghana</p>
+          <button class="footer-contact" data-modal="contact">
+            Plan your visit
+          </button>
+          <p class="footer-gepa">
+            An initiative of<br /><strong
+              >Ghana Export Promotion Authority</strong
+            >
+          </p>
+        </div>
+      </div>
+      <div class="wrap footer-bottom">
+        <span>© 2026 Accra Trade House.</span
+        ><span
+          >Interactive prototype · Sample products & prices · No payments</span
+        ><button data-modal="privacy">Privacy & prototype information</button>
+      </div>
+    </footer>
+    <dialog id="modal" aria-labelledby="dialog-title">
+      <button class="modal-close icon-button" aria-label="Close dialog">
+        ×
+      </button>
+      <div id="modal-content"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
